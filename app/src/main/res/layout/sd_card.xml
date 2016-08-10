@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal" >
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sd_card"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/in_sd_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/AllMB"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/in_sd_all_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/FreeMB"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/in_sd_free_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/process"
+                android:textSize="30sp" />
+
+            <ProgressBar
+                android:id="@+id/in_sd_progressBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:max="1000"
+                android:progress="0"
+                />
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/tableRowsata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView_sata1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/SATA_card"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/out_sata_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRowsata2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView_sata2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/AllMB"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/out_sata_all_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRowSATA3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView_sata3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/FreeMB"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/out_sata_free_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRowsata4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView_sata4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/process"
+                android:textSize="30sp" />
+
+            <ProgressBar
+                android:id="@+id/out_sata_progressBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:max="1000"
+                android:progress="0"
+                />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <TableRow
+            android:id="@+id/tableRow11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/out_sd_card"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/out_sd_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/AllMB"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/out_sd_all_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/FreeMB"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/out_sd_free_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/process"
+                android:textSize="30sp" />
+
+            <ProgressBar
+                android:id="@+id/out_sd_progressBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:max="1000"
+                android:progress="0"
+                 />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/out_tf_card"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/out_tf_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/AllMB"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/out_tf_all_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/FreeMB"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/out_tf_free_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:text=" "
+                android:textSize="28sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/process"
+                android:textSize="30sp" />
+
+            <ProgressBar
+                android:id="@+id/out_tf_progressBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:max="1000"
+                android:progress="0"
+            />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

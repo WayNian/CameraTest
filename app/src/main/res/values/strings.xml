@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">本地监控</string>
+    <string name="title">LGS-Test tools</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_settings">系统设置</string>
+    <string name="sim_butoon">SIM卡</string>
+    <string name="camera">Camera</string>
+    <string name="photo">拍照</string>
+    <string name="sd_button">存储卡</string>
+    <string name="sd_card">内置SD卡</string>
+    <string name="out_sd_card">外置SD卡</string>
+    <string name="SATA_card">外置硬盘</string>
+    <string name="progress">进度条显示</string>
+    <string name="FreeMB">剩余容量</string>
+    <string name="AllMB">总容量</string>
+    <string name="process">进度条显示</string>
+    <string name="begin_record">录音</string>
+    <string name="start_record">开始录音</string>
+    <string name="stop_record">停止录音</string>
+    <string name="play_record">播放录音</string>
+    <string name="video_button">视频</string>
+    <string name="start_button">开始播放</string>
+    <string name="stop_button">停止播放</string>
+    <string name="ok">确定</string>
+    <string name="gsm_strength">GSM信号</string>
+    <string name="battery">Battery</string>
+    <string name="com">串口</string>
+    <string name="com_title"> 请选择您需要打开的串口号</string>
+    <string name="baud_title"> 请选择您需要的波特率</string>
+    <string name="socket">网络通信</string>
+    <string name="out_tf_card">外置TF卡</string>
+
+</resources>
