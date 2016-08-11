@@ -3,16 +3,17 @@ package com.example.cameratest;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.hardware.Camera;
+import android.hardware.Camera.AutoFocusCallback;
+import android.hardware.Camera.PictureCallback;
+import android.hardware.Camera.ShutterCallback;
 import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
-import android.view.Display;
-import android.view.Menu;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -20,6 +21,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedOutputStream;
@@ -30,45 +32,14 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
-
-import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.ImageFormat;
-import android.hardware.Camera;
-import android.hardware.Camera.AutoFocusCallback;
-import android.hardware.Camera.Parameters;
-import android.hardware.Camera.PictureCallback;
-import android.hardware.Camera.ShutterCallback;
-import android.media.MediaRecorder;
-import android.os.Bundle;
-import android.os.Environment;
-import android.view.Menu;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.View;
-import android.view.Window;
-import android.view.View.OnClickListener;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.Toast;
-
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
 public class CameraActivity extends Activity {
     // UI相关
     private SurfaceView surfaceView;
     private SurfaceHolder surfaceHolder;
     private Button okButton, photoButton, videoButton, browseButton;
     private Spinner channelSpinner;
+    private TextView tv_jd, tv_wd;
+
 
     private int height = 290;// 制式通道的改变
     private int width = 0;
@@ -102,12 +73,6 @@ public class CameraActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        //获取系统的分辨率
-        Display display = this.getWindowManager().getDefaultDisplay();
-        int nHeight = display.getHeight();
-        int nWidth = display.getWidth();
-        Log.e("高度", String.valueOf(nHeight));
-        Log.e("宽度", String.valueOf(nWidth));
 
         // 初始化界面
         view_init();
@@ -115,11 +80,10 @@ public class CameraActivity extends Activity {
         // 初始化surfaceView
         surfaceView();
 
+
     }
 
     private void surfaceView() {
-        // TODO Auto-generated method stub
-        System.out.println("------surfaceView init------");
         surfaceView = (SurfaceView) findViewById(R.id.surface);
         surfaceHolder = surfaceView.getHolder();
         surfaceHolder.addCallback(new MySurfaceViewCallback());
@@ -131,15 +95,11 @@ public class CameraActivity extends Activity {
         @Override
         public void surfaceChanged(SurfaceHolder holder, int format, int width,
                                    int height) {
-            // TODO Auto-generated method stub
-            System.out.println("------surfaceChanged------");
             surfaceHolder = holder;
         }
 
         @Override
         public void surfaceCreated(SurfaceHolder holder) {
-            // TODO Auto-generated method stub
-            System.out.println("------surfaceCreated------");
             surfaceHolder = holder;
 
             ok_choice();
@@ -147,8 +107,6 @@ public class CameraActivity extends Activity {
 
         @Override
         public void surfaceDestroyed(SurfaceHolder holder) {
-            // TODO Auto-generated method stub
-            System.out.println("------surfaceDestroyed------");
             surfaceView = null;
             surfaceHolder = null;
         }
@@ -156,7 +114,6 @@ public class CameraActivity extends Activity {
 
 
     private void view_init() {
-        System.out.println("------view_init------");
 
         File sdCardDir = Environment.getExternalStorageDirectory();
         extsd_path = sdCardDir.toString() + "/LGS_VEDIO/";
@@ -184,12 +141,15 @@ public class CameraActivity extends Activity {
         channelSpinner = (Spinner) findViewById(R.id.channel_spinner);
         okButton = (Button) findViewById(R.id.ok_button);
         okButton.setOnClickListener(new buttonClick());
-        photoButton = (Button) findViewById(R.id.photo_button);
-        photoButton.setOnClickListener(new buttonClick());
-        videoButton = (Button) findViewById(R.id.video_button);
-        videoButton.setOnClickListener(new buttonClick());
-        browseButton = (Button) findViewById(R.id.browse_button);
-        browseButton.setOnClickListener(new buttonClick());
+//        photoButton = (Button) findViewById(R.id.photo_button);
+//        photoButton.setOnClickListener(new buttonClick());
+//        videoButton = (Button) findViewById(R.id.video_button);
+//        videoButton.setOnClickListener(new buttonClick());
+//        browseButton = (Button) findViewById(R.id.browse_button);
+//        browseButton.setOnClickListener(new buttonClick());
+
+        tv_jd = (TextView) findViewById(R.id.tv_jd);
+        tv_wd = (TextView) findViewById(R.id.tv_wd);
 
         SpinnerAdapter channelAdapter = new SpinnerAdapter(CameraActivity.this,
                 android.R.layout.simple_spinner_item, channelList);
@@ -206,20 +166,20 @@ public class CameraActivity extends Activity {
             switch (v.getId()) {
                 case R.id.ok_button:
                     ok_choice();
-                    browseButton.setClickable(true);
-                    videoButton.setClickable(true);
+//                    browseButton.setClickable(true);
+//                    videoButton.setClickable(true);
                     break;
-                case R.id.photo_button:
-                    photo(v);
-                    break;
-                case R.id.video_button:
-                    video();
-                    browseButton.setClickable(false);
-                    videoButton.setClickable(false);
-                    break;
-                case R.id.browse_button:
-                    browse();
-                    break;
+//                case R.id.photo_button:
+//                    photo(v);
+//                    break;
+//                case R.id.video_button:
+//                    video();
+//                    browseButton.setClickable(false);
+//                    videoButton.setClickable(false);
+//                    break;
+//                case R.id.browse_button:
+//                    browse();
+//                    break;
                 default:
                     break;
             }
@@ -246,6 +206,7 @@ public class CameraActivity extends Activity {
             width = 504;
         }
 
+        CloseVideo();
         CloseCamera();
 
         InitCamera();
@@ -261,26 +222,6 @@ public class CameraActivity extends Activity {
         if (!isOpen) {
             camera = Camera.open(); // 取得第一个摄像头
             param = camera.getParameters();// 获取param
-
-
-            List<Camera.Size> pictureSizes = param.getSupportedPictureSizes();
-            int length = pictureSizes.size();
-            for (int i = 0; i < length; i++) {
-                Log.e("SupportedPictureSizes", "SupportedPictureSizes : " + pictureSizes.get(i).width + "x" + pictureSizes.get(i).height);
-            }
-
-            List<Camera.Size> previewSizes = param.getSupportedPreviewSizes();
-            length = previewSizes.size();
-            for (int i = 0; i < length; i++) {
-                Log.e("SupportedPreviewSizes", "SupportedPreviewSizes : " + previewSizes.get(i).width + "x" + previewSizes.get(i).height);
-            }
-
-
-            //手机支持的预览格式
-            List<Integer> supPreFmtList = param.getSupportedPreviewFormats();
-            Log.e("SupportedPreviewFormats", "Supported Preview Format :");
-
-
             param.setPreviewSize(width, height);// 设置预览大小
             param.setPreviewFpsRange(4, 10);// 预览照片时每秒显示多少帧的范围张
             param.setPictureFormat(ImageFormat.JPEG);// 图片形式
@@ -314,6 +255,7 @@ public class CameraActivity extends Activity {
             isOpen = false;
         }
     }
+
     // 关闭录像
     private void CloseVideo() {
         if (isRecord == true) {
@@ -421,8 +363,7 @@ public class CameraActivity extends Activity {
 
         Bitmap bitmap1 = Bitmap.createBitmap(bitmap2, 10, 10, 300, 300);
 
-        if (bitmap1 != null)
-        {
+        if (bitmap1 != null) {
             System.out.println("bitmap    got!");
             try {
                 FileOutputStream out = new FileOutputStream(fileName);
@@ -445,14 +386,11 @@ public class CameraActivity extends Activity {
             // TODO Auto-generated method stub
             if (success) {
                 camera.takePicture(new ShutterCallback() {
-                    public void onShutter()
-                    {
+                    public void onShutter() {
                         // 按下快门瞬间会执行此处代码
                     }
-                }, new PictureCallback()
-                {
-                    public void onPictureTaken(byte[] data, Camera c)
-                    {
+                }, new PictureCallback() {
+                    public void onPictureTaken(byte[] data, Camera c) {
                         // 此处代码可以决定是否需要保存原始照片信息
                     }
                 }, myJpegCallback);
@@ -493,6 +431,7 @@ public class CameraActivity extends Activity {
         System.out.println("------onDestroy------");
 
         CloseCamera();
+        CloseVideo();
 
     }
 

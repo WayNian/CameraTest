@@ -3,21 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     tools:context=".CameraActivity">
-
-    <SurfaceView
-        android:id="@+id/surface"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:layout_weight="7"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <SurfaceView
+            android:id="@+id/surface"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+             />
+      <TextView
+          android:gravity="center_horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textSize="50sp"
+          android:layout_weight="1"
+          android:text="公交车98路"
+          android:padding="5dp"
+          android:textColor="#000"
+          android:background="@color/mediumaquamarine"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:background="@color/darkturquoise">
 
 
         <Spinner
@@ -34,29 +53,105 @@
             android:text="确认"
             android:textSize="35sp" />
 
-        <Button
-            android:id="@+id/video_button"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="视频"
-            android:textSize="35sp" />
+            android:text="车号：苏A666666"
+            android:textSize="23sp"
+            android:textColor="@color/black"/>
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
 
-        <Button
-            android:id="@+id/photo_button"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="图片"
-            android:textSize="35sp" />
+            android:text="速度：60KM/H"
+            android:textSize="23sp"
+            android:textColor="@color/black" />
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="本站：天隆寺"
+            android:textSize="23sp"
+            android:textColor="@color/black" />
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="下站：安德门"
+            android:textSize="23sp"
+            android:textColor="@color/black" />
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="当前位置"
+            android:textSize="23sp"
+            android:textColor="@color/black"/>
 
-        <Button
-            android:id="@+id/browse_button"
+        <TextView
+            android:id="@+id/tv_jd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="存储路径"
-            android:textSize="30sp" />
+            android:text="东经：118°46'"
+            android:textSize="23sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tv_wd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="北纬：32°03'"
+            android:textSize="23sp"
+            android:textColor="@color/black"/>
+
+        <!--<Button-->
+        <!--android:id="@+id/video_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:text="视频"-->
+        <!--android:textSize="35sp" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/photo_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:text="图片"-->
+        <!--android:textSize="35sp" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/browse_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:text="存储路径"-->
+        <!--android:textSize="30sp" />-->
 
 
     </LinearLayout>
