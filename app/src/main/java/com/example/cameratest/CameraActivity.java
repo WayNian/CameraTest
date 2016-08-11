@@ -219,7 +219,6 @@ public class CameraActivity extends Activity {
     private void InitCamera() {
         System.out.println("------InitCamera------");
 
-        if (!isOpen) {
             camera = Camera.open(); // 取得第一个摄像头
             param = camera.getParameters();// 获取param
             param.setPreviewSize(width, height);// 设置预览大小
@@ -239,7 +238,6 @@ public class CameraActivity extends Activity {
             }
 
             isOpen = true;
-        }
     }
 
     // 关闭摄像头
